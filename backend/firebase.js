@@ -2,6 +2,9 @@ import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 import 'dotenv/config';
 
+/**
+ * @details Firebase configuration for the project
+ */
 
 const firebaseConfig = {
   apiKey:process.env.FIREBASE_API_KEY,
@@ -17,4 +20,8 @@ const firebaseConfig = {
 
 // Initialize Firebase  
 const app = initializeApp(firebaseConfig);
+
+/**
+ * @details db is the const for referencing/accessing the database
+ */
 export const db = getDatabase(app);
