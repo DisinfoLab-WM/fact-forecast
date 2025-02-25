@@ -7,6 +7,9 @@ HELLO THIS IS A TEST COMMIT TO MAKE SURE THAT EVERYTHING IS WORKING ON MY END
 ## Adding Firebase to Your Project 
 [ this step is already completed but for future use is outlined here]
 You would do this after creating a Firebase project on the Firebase.com website which manages several backend services related to database management and storage. 
+- Install firebase using `npm install firebase ` in whichever directory you are using Firebase. 
+- Navigate to project settings to find the configuration code below in the Your Apps section and paste the configuration code as is into a js/tsx file in your project or src directory.
+- Obscure the API key part by using an environment variable to contain the api key
 
 ### Setting up Firebase in your local project version
 - first make sure you're starting out from your project directory in terminal  
