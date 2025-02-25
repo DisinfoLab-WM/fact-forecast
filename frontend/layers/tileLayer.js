@@ -2,7 +2,7 @@ import TileLayer from 'ol/layer/Tile';
 import XYZ from 'ol/source/XYZ';
 
 const apiKey = 'yrljQvG34pz4TuGaGmTY';
-const mapStyle = 'streets';
+const mapStyle = 'dataviz';
 const language = 'en';
 
 const tileLayer = new TileLayer({
