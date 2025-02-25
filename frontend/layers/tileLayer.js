@@ -10,4 +10,5 @@ const tileLayer = new TileLayer({
         url: `https://api.maptiler.com/maps/${mapStyle}/256/{z}/{x}/{y}.png?key=${apiKey}&language=${language}`,
     }),
 })
+
 export default tileLayer;
