@@ -1,0 +1,9 @@
+{
+  "name": "fact-forecast",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "firebase": "^11.3.1"
+  }
+ 
+}
