@@ -8,7 +8,7 @@ HELLO THIS IS A TEST COMMIT TO MAKE SURE THAT EVERYTHING IS WORKING ON MY END
 [ this step is already completed but for future use is outlined here]
 You would do this after creating a Firebase project on the Firebase.com website which manages several backend services related to database management and storage. 
 
-### : 
+### Setting up Firebase in your local project version
 - first make sure you're starting out from your project directory in terminal  
 -  `cd backend` 
 - run `npm install` (want firebase downloaded in the backend directory)
@@ -36,5 +36,6 @@ It will look like this:
   messagingSenderId: "834128285827",
   appId: "1:834128285827:web:486cffa240652d86550bb6",
   measurementId: "G-KNXV99Q533"
-}; ```
+};
+```
 5. Copy the api key and add it to your .env file (no quotes necessary)  
