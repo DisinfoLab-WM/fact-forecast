@@ -1,8 +1,8 @@
 import {db} from "./firebase.js";
 import { ref, set } from "firebase/database";
 
-
-set(ref(db, 'countries/USA/Fake Article Name'), {
+const base_path = "countries/USA/articles/";
+set(ref(db, base_path + 'Fake Article Name'), {
     src: "https://fakeArticle.com",
     title: "Fake Article Name",
     description: "This is a fake article",
