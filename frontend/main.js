@@ -6,6 +6,8 @@ import { Fill, Stroke, Style as OLStyle } from 'ol/style';
 import pinLayer from './layers/pinLayer';
 import geojsonLayer from './layers/geojsonLayer';
 import tileLayer from './layers/tileLayer';
+import {toLonLat} from 'ol/proj';
+import TileLayer from 'ol/layer/Tile';
 
 
 const map = new Map({
@@ -13,8 +15,11 @@ const map = new Map({
   layers: [tileLayer, geojsonLayer, pinLayer],
   view: new View({
     center: [0, 0],
-    zoom: 2,
-  }),
+    zoom: 0,
+  }), 
+  controls: [],
+  interactions: [],
+  
 });
 
 // highlight country
