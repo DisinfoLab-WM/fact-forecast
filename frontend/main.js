@@ -1,50 +1,48 @@
 import './style.css';
 import 'ol/ol.css';
 import Map from 'ol/Map';
-import View from 'ol/View';
-import pinLayer from './layers/pinLayer';
-import highlightedLayer, { highlightedSource } from './layers/highlightLayer.js';
-import { countriesLayer, countryVectorSource } from './layers/countriesLayer';
-import Feature from 'ol/Feature';
-import { transformExtent } from 'ol/proj';
-import vectorTileLayer from './layers/tileLayer.js';
-import { fromLonLat } from 'ol/proj';
-import newCustomView from './customMapView.js';
+import newCustomView from './customMapView';
+import { highlightLayer } from './layers/highlightLayer';
+import { countryTileLayer } from './layers/countriesTileLayer';
 
 
 const map = new Map({
   target: 'map',
-  renderer: 'webgl',
-  layers: [countriesLayer, highlightedLayer, pinLayer],
+  layers: [countryTileLayer, highlightLayer], // Add both layers to the map
   view: newCustomView,
-  controls: [],
-
 });
 
-
+// Hover effect
+let highlightedFeature = null;
 map.on('pointermove', function (event) {
   const pixel = event.pixel;
-  highlightedLayer.getSource().clear();
+  const featuresAtPixel = map.getFeaturesAtPixel(pixel);
 
-  map.forEachFeatureAtPixel(pixel, function (feature) {
-    const geometry = feature.getGeometry();
+  let featureToHighlight = null;
 
-    if (geometry.getType() === 'GeometryCollection') {
-      const geometries = geometry.getGeometries();
-
-      geometries.forEach((geom) => {
-        if (geom.intersectsCoordinate(event.coordinate)) {
-          const highlightedFeature = new Feature(geom);
-          highlightedLayer.getSource().addFeature(highlightedFeature);
-        }
-      });
-    } else {
-      if (geometry.intersectsCoordinate(event.coordinate)) {
-        highlightedLayer.getSource().addFeature(feature);
+  if (featuresAtPixel && featuresAtPixel.length > 0) {
+    featureToHighlight = featuresAtPixel[0];
+    const featureCountryName = featureToHighlight.get('name');
+    if (featureToHighlight !== highlightedFeature) {
+      // Clear the previous highlight
+      if (highlightedFeature) {
+        highlightLayer.getSource().clear();
       }
+      // Clone feature
+      const clonedFeature = featureToHighlight.clone();
+      highlightLayer.getSource().addFeature(clonedFeature);
+      highlightedFeature = featureToHighlight;
+
+      // update country selected
+      document.getElementById("countryInfo").hidden = false;
+      document.getElementById("countryName").textContent = featureCountryName;
     }
-  });
+  } else {
+    // Reset highlight if no feature is hovered
+    if (highlightedFeature) {
+      highlightLayer.getSource().clear();
+      highlightedFeature = null;
+    }
+    document.getElementById("countryInfo").hidden = true;
+  }
 });
-
-
-

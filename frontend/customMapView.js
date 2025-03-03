@@ -33,7 +33,7 @@ const newCustomView = new View({
     pixelRatio: 1,
     smoothExtentConstraint: false,
     minZoom: -10,
-    maxZoom: 5,
+    maxZoom: 4,
     resolutions: extremeResolutions,
     extent: validExtent,
     zoom: -1,
