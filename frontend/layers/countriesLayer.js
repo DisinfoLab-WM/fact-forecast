@@ -7,15 +7,12 @@ import Stroke from 'ol/style/Stroke';
 
 export const countryVectorSource = new VectorSource({
     url: 'assets/ne_110m_admin_0_countries.json', // Same GeoJSON file
-    format: new GeoJSON(),  // Same format (GeoJSON)
-    tileLoadFunction: function (tile, src) {
-        // Check if tile is already in cache
-        tile.getImage().src = tileCache.getTile(src) || src;
-    }, loadTilesWhileAnimating: true,
+    format: new GeoJSON(), loadTilesWhileAnimating: true,
 })
 
 export const countriesLayer = new VectorLayer({
     source: countryVectorSource,
+    wrapx: false,
     preload: Infinity,
     style: new Style({
         fill: new Fill({

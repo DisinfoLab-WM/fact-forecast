@@ -1,8 +1,8 @@
 import TileLayer from 'ol/layer/Tile';
 import XYZ from 'ol/source/XYZ';
 
-const apiKey = 'yrljQvG34pz4TuGaGmTY';
-const mapStyle = 'dataviz';
+const apiKey = 'C6lVjNBY1f8WGTANpsGs';
+const mapStyle = '51f130a6-9fcc-45d4-b015-4d963c430814'; // MapTiler style ID
 const language = 'en';
 
 const tileLayer = new TileLayer({
@@ -12,6 +12,6 @@ const tileLayer = new TileLayer({
         wrapX: false,
     }),
     preload: Infinity,
-})
+});
 
 export default tileLayer;
