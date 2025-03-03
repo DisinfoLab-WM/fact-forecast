@@ -5,9 +5,9 @@ import Style from 'ol/style/Style';
 import Fill from 'ol/style/Fill';
 import Stroke from 'ol/style/Stroke';
 
-const geojsonLayer = new VectorLayer({
+const testingLayer = new VectorLayer({
     source: new VectorSource({
-        url: 'assets/countries.json', // Use the new file here
+        url: 'assets/ne_110m_admin_0_countries.json', // Use the new file here
         format: new GeoJSON(),
         wrapX: false,
     }),
@@ -24,4 +24,4 @@ const geojsonLayer = new VectorLayer({
     }),
 });
 
-export default geojsonLayer;
+export default testingLayer;

@@ -12,7 +12,7 @@ import TileLayer from 'ol/layer/Tile';
 import GeoJSON from 'ol/format/GeoJSON.js';
 import { get } from 'ol/proj';
 import { transform } from 'ol/proj';
-
+import testingLayer from './layers/testingLayer.js';
 const newView = new View({
   constrainResolution: true,
   center: [0, 0],
@@ -22,7 +22,7 @@ const newView = new View({
 })
 const map = new Map({
   target: 'map',
-  layers: [tileLayer, highlightedLayer, pinLayer],
+  layers: [testingLayer, highlightedLayer, pinLayer],
   view: newView,
   controls: [],
 

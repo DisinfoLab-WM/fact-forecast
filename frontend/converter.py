@@ -1,7 +1,7 @@
 import json
 
 # Load your original GeoJSON file
-with open('ne_110m_admin_0_countries.json', 'r') as f:
+with open('assets/ne_110m_admin_0_countries.json', 'r') as f:
     geojson = json.load(f)
 
 # Create a new FeatureCollection
@@ -25,7 +25,7 @@ for index, geometry in enumerate(geojson['geometries']):
     feature_collection["features"].append(feature)
 
 # Write the new FeatureCollection to a new file
-with open('converted_geojson.json', 'w') as f:
+with open('assets/featureCollection.json', 'w') as f:
     json.dump(feature_collection, f, indent=2)
 
 print("Conversion successful! The new GeoJSON file has been created.")

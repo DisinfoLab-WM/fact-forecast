@@ -9,11 +9,11 @@ const highlightedLayer = new VectorLayer({
     source: highlightedSource,
     style: new Style({
         stroke: new Stroke({
-            color: 'rgba(30, 144, 255, 0.8)', // Blue border
-            width: 3
+            color: '#00000', // Blue border
+            width: 1
         }),
         fill: new Fill({
-            color: 'rgba(30, 144, 255, 0.15)' // Light blue fill
+            color: '#ffcc00' // Light blue fill
         })
     })
 });
