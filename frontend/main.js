@@ -1,49 +1,48 @@
 import './style.css';
 import 'ol/ol.css';
 import Map from 'ol/Map';
-import View from 'ol/View';
-import { Fill, Stroke, Style as OLStyle } from 'ol/style';
-import pinLayer from './layers/pinLayer';
-import geojsonLayer from './layers/geojsonLayer';
-import tileLayer from './layers/tileLayer';
-import {toLonLat} from 'ol/proj';
-import TileLayer from 'ol/layer/Tile';
+import newCustomView from './customMapView';
+import { highlightLayer } from './layers/highlightLayer';
+import { countryTileLayer } from './layers/countriesTileLayer';
 
 
 const map = new Map({
   target: 'map',
-  layers: [tileLayer, geojsonLayer, pinLayer],
-  view: new View({
-    center: [0, 0],
-    zoom: 0,
-  }), 
-  controls: [],
-  interactions: [],
-  
+  layers: [countryTileLayer, highlightLayer], // Add both layers to the map
+  view: newCustomView,
 });
 
-// highlight country
-map.on('click', (event) => {
-  unhighlightAllFeatures(geojsonLayer)
-  map.forEachFeatureAtPixel(event.pixel, function (feature, layer) {
-    feature.setStyle(new OLStyle({
-      stroke: new Stroke({
-        color: 'rgba(30, 144, 255, 0.8)',
-        width: 3,
-      }),
-      fill: new Fill({
-        color: 'rgba(30, 144, 255, 0.15)', // Highlight with red fill
-      }),
-    }));
-	document.getElementById("countryInfo").hidden=false;
-	document.getElementById("countryName").textContent=feature.get("ADMIN");
-  })
-});
+// Hover effect
+let highlightedFeature = null;
+map.on('pointermove', function (event) {
+  const pixel = event.pixel;
+  const featuresAtPixel = map.getFeaturesAtPixel(pixel);
 
-function unhighlightAllFeatures(vectorLayer) {
-  const source = vectorLayer.getSource();
-  source.getFeatures().forEach((feature) => {
-    feature.setStyle(null); // Reset to default style
-  });
-  document.getElementById("countryInfo").hidden=true;
-}
+  let featureToHighlight = null;
+
+  if (featuresAtPixel && featuresAtPixel.length > 0) {
+    featureToHighlight = featuresAtPixel[0];
+    const featureCountryName = featureToHighlight.get('name');
+    if (featureToHighlight !== highlightedFeature) {
+      // Clear the previous highlight
+      if (highlightedFeature) {
+        highlightLayer.getSource().clear();
+      }
+      // Clone feature
+      const clonedFeature = featureToHighlight.clone();
+      highlightLayer.getSource().addFeature(clonedFeature);
+      highlightedFeature = featureToHighlight;
+
+      // update country selected
+      document.getElementById("countryInfo").hidden = false;
+      document.getElementById("countryName").textContent = featureCountryName;
+    }
+  } else {
+    // Reset highlight if no feature is hovered
+    if (highlightedFeature) {
+      highlightLayer.getSource().clear();
+      highlightedFeature = null;
+    }
+    document.getElementById("countryInfo").hidden = true;
+  }
+});
