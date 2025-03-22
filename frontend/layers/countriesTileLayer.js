@@ -1,5 +1,4 @@
 import MVT from 'ol/format/MVT';
-import VectorSource from 'ol/source/Vector';
 import VectorTileLayer from 'ol/layer/VectorTile';
 import VectorTileSource from 'ol/source/VectorTile';
 import { defaultStyle } from '../countryStyles';
