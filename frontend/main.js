@@ -23,7 +23,6 @@ map.on("pointermove", (evt) => {
   if (currentFeatures.length > 0) {
     currentFeatures[0].set("isActive", true);
     highlightedFeatures.push(currentFeatures[0])
-    currentCountry = currentFeatures[0].get("ADMIN");
-    console.log(currentCountry)
+    currentCountry = currentFeatures[0].get("admin");
   }
 });

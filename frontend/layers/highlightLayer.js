@@ -20,7 +20,7 @@ export const highlightLayer = new VectorLayer({
 
         return isActive ? new Style({
             stroke: new Stroke({
-                color: 'blue',
+                color: 'black',
                 width: 1,
             }),
             fill: new Fill({
