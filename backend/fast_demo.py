@@ -38,7 +38,7 @@ def get_country_articles(db: Database, country: str) -> Database:
 
 # url/articles/?country={ country }&name={ name }
 @app.get("/articles/")
-async def get_specific_article(country: str, name: str):
+async def get_specific_article(name: str, country: str = "USA"):
     global db
     articles = get_country_articles(db, country)
     art = articles.child(name).get().val()
@@ -48,7 +48,7 @@ async def get_specific_article(country: str, name: str):
 
 # url/articles/?country={ country }&name={ name }
 @app.get("/recent/?country={ country }&n={ n }")
-async def get_last_n_articles(country: str, n: int):
+async def get_last_n_articles(n: int, country: str = "USA"):
     #
     #   TODO:
     #       Implement bounds checking
