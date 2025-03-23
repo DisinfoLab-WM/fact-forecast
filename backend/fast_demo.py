@@ -33,26 +33,28 @@ app = FastAPI()
 firebase = pyrebase.initialize_app(API_CONFIG)
 db = firebase.database()
 
-def get_usa_articles(db: Database) -> Database:
-    return db.child("countries").child("USA").child("articles")
+def get_country_articles(db: Database, country: str) -> Database:
+    return db.child("countries").child(country).child("articles")
 
-@app.get("/usa/articles/")
-async def get_specific_article(name: str):
+# url/articles/?country={ country }&name={ name }
+@app.get("/articles/")
+async def get_specific_article(country: str, name: str):
     global db
-    articles = get_usa_articles(db)
+    articles = get_country_articles(db, country)
     art = articles.child(name).get().val()
     if art is None:
         return {}
     return art
 
-@app.get("/usa/recent/")
-async def get_last_n_articles(n: int):
+# url/articles/?country={ country }&name={ name }
+@app.get("/recent/?country={ country }&n={ n }")
+async def get_last_n_articles(country: str, n: int):
     #
     #   TODO:
     #       Implement bounds checking
     #
     global db
-    articles = iter( get_usa_articles(db).get() )
+    articles = iter( get_country_articles(db, country).get() )
     recent_articles = {}
     for i in range( n ):
         art: PyreResponse = next(articles)
