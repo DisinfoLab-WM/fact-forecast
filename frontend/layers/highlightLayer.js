@@ -5,7 +5,7 @@ import GeoJSON from 'ol/format/GeoJSON.js';
 import geoJsonFeatures from '../assets/ne_110m_admin_0_countries.json';
 import VectorSource from 'ol/source/Vector';
 import VectorLayer from 'ol/layer/Vector';
-import { defaultStyle } from '../countryStyles';
+import { defaultStyle, highlightStyle, selectedStyle } from '../countryStyles';
 
 export const highLightLayerSource = new VectorSource({
     features: new GeoJSON({
@@ -18,17 +18,10 @@ export const highlightLayer = new VectorLayer({
     source: highLightLayerSource,
     style: (feature) => {
         const isActive = feature.get("isActive") === true;
-
-        return isActive ? new Style({
-            stroke: new Stroke({
-                color: 'black',
-                width: 1,
-            }),
-            fill: new Fill({
-                color: 'rgba(255, 204, 0, 1)',
-            })
-        })
-            : defaultStyle;
+        const isSelected = feature.get("isSelected") === true;
+        return isSelected ? selectedStyle :
+            isActive ? highlightStyle
+                : defaultStyle;
     },
     updateWhileAnimating: true,
     updateWhileInteracting: true,

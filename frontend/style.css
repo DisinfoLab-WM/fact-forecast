@@ -5,6 +5,7 @@ body {
   margin: 0;
   height: 100%;
   background-color: hsl(186, 56%, 23%);
+  justify-content: center;
 }
 
 h1 {
@@ -29,27 +30,104 @@ h2 {
   margin-bottom: 1rem;
 }
 
-#storyContainer {
-  padding-top: 12px;
+
+
+
+#mapContainer {
   display: flex;
-  justify-content: center;
+  height: 100vh;
+  width: calc(100% - 17px);
+  gap: 10px;
+  padding: 10px;
+  background-color: hsl(186, 56%, 23%);
+}
+
+#map {
+  flex-grow: 1;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #e0e0e0;
+  overflow: hidden;
+}
+
+#storyContainer {
+  width: 300px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 600px) {
+  #storyContainer {
+    width: 200px;
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #storyContainer {
+    width: 180px;
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #storyContainer {
+    width: 150px;
+    padding: 10px;
+  }
+}
+
+#selectedCountry {
+  width: 100%;
+  font-size: 3em;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+#narratives {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 100%;
   gap: 10px;
 }
 
-
-
-#map {
-  margin: auto;
-  top: 0;
-  bottom: 0;
-  width: 80%;
-  height: 80%;
-  border-style: solid;
-  border-width: 5px;
-  border-color: hsl(191, 100%, 12%);
-  background-color: #FFFFFF;
+#narratives div {
+  text-indent: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 10px;
+  display: block;
 }
+
+.narrative-title {
+  padding-top: 2px;
+  margin: 0;
+  font-size: 22px;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+}
+
+.narrative-description {
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-bottom: 2px;
+  margin: 5px 0;
+  color: #555;
+  font-size: 16px;
+  text-align: center;
+}
+
 
 /* CSS */
 .button-19 {
