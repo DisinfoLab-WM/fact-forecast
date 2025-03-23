@@ -3,17 +3,16 @@ import 'ol/ol.css';
 import Map from 'ol/Map';
 import newCustomView from './customMapView';
 import { highlightLayer, highLightLayerSource } from './layers/highlightLayer';
-import { countryTileLayer } from './layers/countriesTileLayer';
-
 let currentCountry = ""; // current hovered country
 
 
-//countryTileLayer, highlightLayer
+// highlightLayer
 const map = new Map({
   target: 'map',
-  layers: [countryTileLayer, highlightLayer],
+  layers: [highlightLayer],
   view: newCustomView,
 });
+
 // highlight on pointer move
 let highlightedFeatures = [];
 map.on("pointermove", (evt) => {

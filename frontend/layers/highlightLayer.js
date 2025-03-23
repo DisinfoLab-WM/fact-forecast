@@ -5,6 +5,7 @@ import GeoJSON from 'ol/format/GeoJSON.js';
 import geoJsonFeatures from '../assets/ne_110m_admin_0_countries.json';
 import VectorSource from 'ol/source/Vector';
 import VectorLayer from 'ol/layer/Vector';
+import { defaultStyle } from '../countryStyles';
 
 export const highLightLayerSource = new VectorSource({
     features: new GeoJSON({
@@ -27,6 +28,8 @@ export const highlightLayer = new VectorLayer({
                 color: 'rgba(255, 204, 0, 1)',
             })
         })
-            : null;
-    }
+            : defaultStyle;
+    },
+    updateWhileAnimating: true,
+    updateWhileInteracting: true,
 });

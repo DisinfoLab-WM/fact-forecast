@@ -48,4 +48,5 @@ const newCustomView = new View({
     zoom: -5, // Default zoom level
 });
 
+
 export default newCustomView;
