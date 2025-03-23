@@ -36,21 +36,25 @@ db = firebase.database()
 def get_usa_articles(db: Database) -> Database:
     return db.child("countries").child("USA").child("articles")
 
-@app.get("/usa/articles/{article_name}")
-async def get_specific_article(article_name: str):
+@app.get("/usa/articles/")
+async def get_specific_article(name: str):
     global db
     articles = get_usa_articles(db)
-    art = articles.child(article_name).get().val()
+    art = articles.child(name).get().val()
     if art is None:
         return {}
     return art
 
-@app.get("/usa/recent/{n}")
+@app.get("/usa/recent/")
 async def get_last_n_articles(n: int):
+    #
+    #   TODO:
+    #       Implement bounds checking
+    #
     global db
     articles = iter( get_usa_articles(db).get() )
     recent_articles = {}
-    for i in range(n):
+    for i in range( n ):
         art: PyreResponse = next(articles)
         recent_articles[str(i)] = art.val()
     return recent_articles
