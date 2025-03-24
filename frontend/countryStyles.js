@@ -12,11 +12,23 @@ export const defaultStyle = new Style({
 });
 
 export const highlightStyle = new Style({
-    fill: new Fill({
-        color: 'rgba(255, 204, 0, 1)', // Fill color
-    }),
     stroke: new Stroke({
-        color: '#333', // Stroke color
-        width: 0.5, // Stroke width
+        color: 'black',
+        width: .5,
     }),
-});
+    fill: new Fill({
+        color: 'rgba(255, 204, 0, .7)',
+    })
+})
+
+export const selectedStyle = new Style({
+    stroke: new Stroke({
+        color: 'black',
+        width: 1,
+    }),
+    fill: new Fill({
+        color: 'rgba(255, 204, 0, 1)',
+    })
+})
+
+
