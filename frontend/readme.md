@@ -16,3 +16,10 @@ To generate a build ready for production:
     npm run build
 
 Then deploy the contents of the `dist` directory to your server.  You can also run `npm run serve` to serve the results of the `dist` directory for preview.
+
+2/24 meeting notes:
+	Max zoom/fix zoom
+	Talk to Sarah about design
+	Pop up stories/pins in chronological order
+	Click on country - 5-10 most recent (or most popular?)
+	Side element/sidebar w/ stories
