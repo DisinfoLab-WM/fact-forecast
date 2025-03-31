@@ -1,28 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link
+            rel="icon"
+            type="image/x-icon"
+            href="https://openlayers.org/favicon.ico"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Using OpenLayers with Vite</title>
+    </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/x-icon" href="https://openlayers.org/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Using OpenLayers with Vite</title>
-</head>
-
-<body>
-  <h1>Some Sort of Info Lab </h1>
-  <div id="mapContainer">
-    <div id="map"></div>
-    <div id="storyContainer">
-      <div id="selectedCountry">No Country</div>
-      <hr style="border: 1px solid #000; width: 80%; margin: 20px auto;">
-      <div id="narratives">
-      </div>
-    </div>
-  </div>
-
-  <script type="module" src="./main.js"></script>
-  <script type="module" src="./storyContainer.js"></script>
-  <script type="module" src="./storyButtons.js"></script>
-</body>
-
+    <body>
+        <h1>Some Sort of Info Lab</h1>
+        <div id="mapContainer">
+            <div id="map"></div>
+            <div id="storyContainer">
+                <div id="selectedCountry">No Country</div>
+                <hr
+                    style="
+                        border: 1px solid #000;
+                        width: 80%;
+                        margin: 20px auto;
+                    "
+                />
+                <div id="narratives"></div>
+            </div>
+        </div>
+        <!--
+        <script type="module" src="http://localhost:5173/@vite/client"></script>
+        <script type="module" src="http://localhost:5173/main.js"></script>
+        --->
+        <script type="module" src="./main.js"></script>
+        <script type="module" src="./storyContainer.js"></script>
+        <script type="module" src="./storyButtons.js"></script>
+    </body>
 </html>

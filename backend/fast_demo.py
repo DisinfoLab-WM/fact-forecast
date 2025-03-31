@@ -1,12 +1,14 @@
 from dotenv import load_dotenv
+from os import environ as environment_variables
+import json
+
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import HTMLResponse
-from os import environ as environment_variables
+from fastapi.staticfiles import StaticFiles
 
-import json
 import pyrebase
 from pyrebase.pyrebase import Database, PyreResponse
-from urllib3.contrib.appengine import HTTPError
+from random import randint
 load_dotenv()
 
 '''
@@ -17,6 +19,8 @@ load_dotenv()
 '''
 
 API_KEY = environment_variables["FIREBASE_API_KEY"]
+
+FRONT_END_PATH = environment_variables["FRONT_END_PATH"]
 
 API_CONFIG = {
   "apiKey": API_KEY,
@@ -30,6 +34,9 @@ API_CONFIG = {
 }
 
 app = FastAPI()
+print(FRONT_END_PATH)
+app.mount('/static', StaticFiles(directory=FRONT_END_PATH, html=True), name='static')
+
 firebase = pyrebase.initialize_app(API_CONFIG)
 db = firebase.database()
 
@@ -60,6 +67,27 @@ async def get_last_n_articles(n: int, country: str = "USA"):
         art: PyreResponse = next(articles)
         recent_articles[str(i)] = art.val()
     return recent_articles
+
+# url/dummy/?country={ country }&name={ name }
+@app.get("/dummy/")
+async def dummy(n: int, country: str = "USA"):
+    #
+    #   TODO:
+    #       Implement bounds checking
+    #
+    with open("backend/dummy_articles.json") as file:
+        all_arts = json.load(file)
+    arts = []
+    for _ in range(n):
+        arts.append( all_arts[randint(0, 9)] )
+    return arts
+
+@app.get("/")
+async def load_site():
+    with open(FRONT_END_PATH + "index.html", 'r') as file:
+        content = ''.join(file.readlines())
+
+    return HTMLResponse(content, status_code=200)
 
 # TODO:
 #   Implement pushing to database
