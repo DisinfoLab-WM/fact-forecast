@@ -37,15 +37,15 @@ const validExtent = [-18861403.350696743, -7654109.648557382, 22089274.90336576,
 
 // Set the custom view for the map
 const newCustomView = new View({
-    constrainResolution: true,
+    // constrainResolution: true,
     center: fromLonLat([0, 0]), // Center of the map
     pixelRatio: 1,
     smoothExtentConstraint: false,
-    minZoom: -10, // Custom zoom-out (negative values)
+    minZoom: 0, // Custom zoom-out (negative values)
     maxZoom: 4,   // Custom zoom-in (positive values)
-    resolutions: extremeResolutions, // Use the custom resolutions array
+    // resolutions: extremeResolutions, // Use the custom resolutions array
     extent: validExtent,  // Define valid map bounds
-    zoom: -5, // Default zoom level
+    zoom: 0, // Default zoom level
 });
 
 
