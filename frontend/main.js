@@ -5,7 +5,7 @@ import {easeOut} from 'ol/easing';
 import Map from 'ol/Map';
 import newCustomView from './customMapView';
 import { highlightLayer, highLightLayerSource } from './layers/highlightLayer';
-import { createRandomNarrative, emptyNarratives } from './storyContainer';
+import { loadArticlesForCountry, emptyNarratives } from './storyContainer';
 import DoubleClickZoom from 'ol/interaction/DoubleClickZoom';
 let currentCountry = ""; // current hovered country
 let hoverToggle = true;
@@ -58,17 +58,18 @@ map.on("click", (evt) => {
     selectedFeature.set('isActive', false);
     selectedFeature.set('isSelected', true);
     console.log(selectedFeature);
-    currentCountry = (selectedFeature.get("admin").length > 12) ? selectedFeature.get("abbrev") : selectedFeature.get("admin"); // if name is too long get abbreviation
+    // Get country name and map it to a supported country code
+    let countryName = selectedFeature.get("admin");
+    let countryCode = mapToSupportedCountry(countryName);
+    currentCountry = countryCode;
     //update stories
     console.log(currentCountry)
     if (countrySelected.textContent !== currentCountry) {
-      emptyNarratives();
-      let randomNumber = Math.min(Math.floor(Math.random() * 6 + 1), Math.floor(Math.random() * 6 + 1));
-      for (let i = 0; i < randomNumber; i++) {
-        createRandomNarrative();
-      }
-	  
-	  flyTo(selectedFeature, function () {}, map.getView());
+      // Load articles from the backend API
+      loadArticlesForCountry(currentCountry);
+      
+      // Fly to the selected country
+      flyTo(selectedFeature, function () {}, map.getView());
     }
     countrySelected.textContent = currentCountry;
   } else if (countrySelected.textContent == "No Country"){
@@ -113,5 +114,28 @@ function flyOut(view) {
 	  easing: easeOut
     }
   );
+}
+
+/**
+ * Map country names to supported country codes
+ * @param {string} countryName - The country name from the map feature
+ * @returns {string} - The supported country code
+ */
+function mapToSupportedCountry(countryName) {
+  // Map of country names to supported country codes
+  const countryMapping = {
+    "United States of America": "USA"
+    // Add more mappings as needed
+  };
+
+  // Check if we have a direct mapping
+  if (countryMapping[countryName]) {
+    return countryMapping[countryName];
+  }
+
+  // If no direct mapping, use the country name as is
+  // This might not work for all countries, but it's a fallback
+  console.log(`No mapping found for country: ${countryName}, using as is`);
+  return countryName.toUpperCase();
 }
 

@@ -1,71 +1,131 @@
-let narrativeContainer = document.querySelector("#narratives");
+import { fetchArticlesByCountry } from './services/api.js';
 
-function createNarrative(narrativeTitle, briefDescription) {
+let narrativeContainer = document.querySelector("#narratives");
+let loadingIndicator = null;
+
+/**
+ * Create a loading indicator
+ */
+function showLoading() {
+    // Create loading indicator if it doesn't exist
+    if (!loadingIndicator) {
+        loadingIndicator = document.createElement('div');
+        loadingIndicator.className = 'loading-indicator';
+        loadingIndicator.innerHTML = `
+            <div class="spinner"></div>
+            <p>Loading articles...</p>
+        `;
+    }
+    narrativeContainer.appendChild(loadingIndicator);
+}
+
+/**
+ * Hide the loading indicator
+ */
+function hideLoading() {
+    if (loadingIndicator && loadingIndicator.parentNode) {
+        loadingIndicator.parentNode.removeChild(loadingIndicator);
+    }
+}
+
+/**
+ * Create a narrative card for an article
+ * @param {Object} article - The article data
+ */
+function createNarrative(article) {
+    const title = article.metadata.articleTitle;
+    const source = article.metadata.siteName;
+    const date = new Date(article.metadata.datePublished).toLocaleDateString();
+    
+    // Extract first paragraph or a portion of the article text for the description
+    let description = '';
+    if (article.content && article.content.articleText) {
+        // Get the first 250 characters of the article text
+        const fullText = article.content.articleText;
+        description = fullText.substring(0, 250) + (fullText.length > 250 ? '...' : '');
+    }
+    
     let newNarrative = document.createElement('div');
+    newNarrative.className = 'narrative-card';
     newNarrative.innerHTML = `
-    <h3 class="narrative-title">${narrativeTitle}</h3>
-    <p class="narrative-description">${briefDescription}</p>
-`;
+        <h3 class="narrative-title">${title}</h3>
+        <div class="narrative-meta">
+            <span class="narrative-source">${source}</span>
+            <span class="narrative-date">${date}</span>
+        </div>
+        <p class="narrative-description">${description}</p>
+        <a href="${article.metadata.url}" target="_blank" class="read-more">Read Full Article</a>
+    `;
+    
     narrativeContainer.appendChild(newNarrative);
 }
 
+/**
+ * Create an error message
+ * @param {string} message - The error message to display
+ */
+function createErrorMessage(message) {
+    let errorElement = document.createElement('div');
+    errorElement.className = 'error-message';
+    errorElement.innerHTML = `
+        <p>${message}</p>
+        <button id="retry-button">Retry</button>
+    `;
+    narrativeContainer.appendChild(errorElement);
+    
+    // Add event listener to retry button
+    document.getElementById('retry-button').addEventListener('click', () => {
+        const countryElement = document.querySelector('#selectedCountry');
+        if (countryElement && countryElement.textContent !== 'No Country') {
+            loadArticlesForCountry(countryElement.textContent);
+        }
+    });
+}
+
+/**
+ * Empty the narratives container
+ */
 export function emptyNarratives() {
     while (narrativeContainer.firstChild) {
         narrativeContainer.removeChild(narrativeContainer.firstChild);
     }
 }
-// random stuff for example work
-export function createRandomNarrative() {
-    let narrative = getRandomNarrative();
-    createNarrative(narrative.title, narrative.description)
-}
 
-
-function getRandomNarrative() {
-    const randomIndex = Math.floor(Math.random() * trendingNarratives.length);
-    const randomNarrative = trendingNarratives[randomIndex];
-    return randomNarrative;
-}
-
-const trendingNarratives = [
-    {
-        title: "Democratic Digital Strategy",
-        description: "The Democratic Party is implementing a new digital strategy involving collaborations with online influencers to enhance engagement and resonate with modern audiences. Spearheaded by Senator Cory Booker, the initiative aims to double online interactions within a year. While it has seen early successes, it has also faced criticism from both liberals and conservatives regarding its authenticity."
-    },
-    {
-        title: "Use of Wartime Law for Deportations",
-        description: "Trump administration officials are defending the use of wartime laws to deport Venezuelan migrants, a move that has sparked legal debates and controversy."
-    },
-    {
-        title: "Gelatin Consumption Craze",
-        description: "There's a growing trend on social media platforms, especially TikTok, where users are creating and consuming gelatin-based recipes for their perceived health benefits. Gelatin is believed to support skin elasticity, hydration, and overall health. However, experts caution about the high sugar content in many gelatin-based recipes."
-    },
-    {
-        title: "Cottage Cheese Shortage in Australia",
-        description: "A viral recipe known as the Hot Honey Sweet Potato Beef Bowl has led to a surge in demand for cottage cheese in Australia, causing shortages in supermarkets. Influencers Michael Finch and Danielle Mitchell popularized the dish, highlighting the impact of social media trends on consumer behavior."
-    },
-    {
-        title: "Park Shooting Arrests",
-        description: "Three suspects have been arrested in connection with a mass shooting at a park, prompting discussions about public safety and gun control measures."
-    },
-    {
-        title: "Segway Scooter Recall",
-        description: "Segway has recalled 220,000 scooters due to fall hazards, affecting consumers and prompting safety reviews."
-    },
-    {
-        title: "George Foreman's Passing",
-        description: "Legendary boxing champion George Foreman has passed away at the age of 76, marking the end of an era in sports history."
-    },
-    {
-        title: "Super Bowl Champions Visit the White House",
-        description: "President Trump has extended an invitation to the Kansas City Chiefs to visit the White House following their Super Bowl victory, continuing the tradition of honoring sports champions."
-    },
-    {
-        title: "Pope Francis' Health",
-        description: "Pope Francis has been discharged from the hospital to continue his recovery at the Vatican, appearing frail but stable."
-    },
-    {
-        title: "Iceland's Minister Resigns",
-        description: "Iceland's minister for children has resigned following revelations of a relationship with a teenager, sparking political and public reactions."
+/**
+ * Load articles for a specific country
+ * @param {string} country - The country code
+ */
+export async function loadArticlesForCountry(country) {
+    console.log(`Loading articles for country: ${country}`);
+    
+    if (!country || country === 'No Country') {
+        console.log('No country selected, skipping article load');
+        return;
     }
-];
+    
+    emptyNarratives();
+    showLoading();
+    
+    try {
+        console.log(`Attempting to fetch articles for ${country}`);
+        const data = await fetchArticlesByCountry(country, 10);
+        hideLoading();
+        
+        console.log('API response:', data);
+        
+        if (data.articles && data.articles.length > 0) {
+            console.log(`Found ${data.articles.length} articles for ${country}`);
+            data.articles.forEach((article, index) => {
+                console.log(`Creating narrative for article ${index + 1}`);
+                createNarrative(article);
+            });
+        } else {
+            console.warn(`No articles found for ${country}`);
+            createErrorMessage(`No articles found for ${country}`);
+        }
+    } catch (error) {
+        hideLoading();
+        console.error(`Error loading articles for ${country}:`, error);
+        createErrorMessage(`Failed to load articles for ${country}. Please try again later.`);
+    }
+}

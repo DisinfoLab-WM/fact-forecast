@@ -97,35 +97,126 @@ h2 {
   padding: 10px;
   width: 100%;
   gap: 10px;
+  overflow-y: auto;
+  max-height: calc(100vh - 200px);
 }
 
 #narratives div {
   text-indent: 10px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  border: 2px solid black;
-  border-radius: 10px;
   display: block;
+  border-radius: 10px;
+}
+
+/* Article card styles */
+.narrative-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+  padding: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.narrative-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .narrative-title {
   padding-top: 2px;
   margin: 0;
-  font-size: 22px;
-  color: #333;
+  font-size: 20px;
+  color: #1a73e8;
   font-weight: bold;
-  text-align: center;
+  text-align: left;
 }
 
 .narrative-description {
   padding-left: 2px;
   padding-right: 2px;
   padding-bottom: 2px;
-  margin: 5px 0;
+  margin: 10px 0;
   color: #555;
-  font-size: 16px;
-  text-align: center;
+  font-size: 14px;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.narrative-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #666;
+  margin: 5px 0 10px 0;
+}
+
+.read-more {
+  display: inline-block;
+  color: #1a73e8;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
+
+/* Loading indicator */
+.loading-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border: none;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #1a73e8;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error message */
+.error-message {
+  background-color: #fdecea;
+  border-left: 4px solid #ea4335;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  border: none;
+}
+
+.error-message p {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: #5f6368;
+}
+
+.error-message button {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.error-message button:hover {
+  background-color: #1765cc;
 }
 
 
