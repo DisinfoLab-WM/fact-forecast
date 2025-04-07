@@ -5,7 +5,7 @@ import { transformExtent } from 'ol/proj';
 import { fromLonLat } from 'ol/proj';
 
 // Your image extent in EPSG:4326 (geographic coordinates)
-const imageExtent = [-175, -60, 190, 80];
+const imageExtent = [-175, -85, 190, 82];
 const transformedExtent = transformExtent(imageExtent, 'EPSG:4326', 'EPSG:3857');
 
 // Initialize the resolutions array for custom zoom levels
@@ -33,7 +33,7 @@ for (let i = -1; i >= -10; i--) {
 console.log(extremeResolutions);
 
 // Define the valid extent for your map (the visible area)
-const validExtent = [-18861403.350696743, -7654109.648557382, 22089274.90336576, 11960242.813473871];
+const validExtent = [-18861403.350696743, -10071868.8804, 21089274.90336576, 16979886.33];
 
 // Set the custom view for the map
 const newCustomView = new View({
