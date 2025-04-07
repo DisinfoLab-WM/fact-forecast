@@ -30,7 +30,6 @@ body {
 }
 
 h1 {
-  font-family: Raleway, sans-serif;
   font-weight: 700;
   text-align: center;
   color: white;
@@ -41,18 +40,14 @@ h1 {
 }
 
 h2 {
-  font-family: Raleway, sans-serif;
   font-weight: 600;
   text-align: center;
   color: white;
-  font-size: 4rem;
-  letter-spacing: -2px;
-  line-height: .6;
-  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  margin: 1rem 0;
 }
-
-
-
 
 #mapContainer {
   display: flex;
@@ -64,43 +59,44 @@ h2 {
 
 #map {
   flex-grow: 1;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background: #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(to bottom right, #f0f0f0, #e0e0e0);
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 #storyContainer {
-  width: 300px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 15px;
+  width: 350px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
-  overflow-x: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 @media screen and (max-width: 600px) {
   #storyContainer {
-    width: 200px;
-    padding: 10px;
+    width: 250px;
+    padding: 15px;
   }
 }
 
 @media screen and (max-width: 500px) {
   #storyContainer {
-    width: 180px;
-    padding: 10px;
+    width: 220px;
+    padding: 15px;
   }
 }
 
 @media screen and (max-width: 400px) {
   #storyContainer {
-    width: 150px;
-    padding: 10px;
+    width: 180px;
+    padding: 15px;
   }
 }
 
@@ -204,8 +200,13 @@ h2 {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Error message */
@@ -243,7 +244,7 @@ h2 {
 /* CSS */
 .button-19 {
   appearance: button;
-  background-color: hsl(191, 50%, 50%);
+  background-color: var(--accent);
   border: solid transparent;
   border-radius: 16px;
   border-width: 0 0 4px;
@@ -274,7 +275,7 @@ h2 {
 
 .button-19:after {
   background-clip: padding-box;
-  background-color: hsl(178, 50%, 60%);
+  background-color: var(--secondary);
   border: solid transparent;
   border-radius: 16px;
   border-width: 0 0 4px;
