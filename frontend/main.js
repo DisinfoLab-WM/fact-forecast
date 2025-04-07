@@ -1,7 +1,7 @@
 import './style.css';
 import 'ol/ol.css';
-import {getCenter} from 'ol/extent';
-import {easeOut} from 'ol/easing';
+import { getCenter } from 'ol/extent';
+import { easeOut } from 'ol/easing';
 import Map from 'ol/Map';
 import newCustomView from './customMapView';
 import { highlightLayer, highLightLayerSource } from './layers/highlightLayer';
@@ -9,7 +9,6 @@ import { loadArticlesForCountry, emptyNarratives } from './storyContainer';
 import DoubleClickZoom from 'ol/interaction/DoubleClickZoom';
 let currentCountry = ""; // current hovered country
 let hoverToggle = true;
-
 
 let countrySelected = document.querySelector("#selectedCountry");
 // highlightLayer
@@ -35,13 +34,20 @@ map.on("pointermove", (evt) => {
   // reset highlight
   highlightedFeatures.forEach((f) => f.set('isActive', false));
   highlightedFeatures = [];
-  // get features
-  let currentFeatures = highLightLayerSource.getFeaturesAtCoordinate(evt.coordinate);
+
+  // Check for features at both original and wrapped coordinates
+  const wrappedCoordinate = [evt.coordinate[0] - 20037508.34 * 2, evt.coordinate[1]];
+
+  // Get features at both positions
+  let currentFeatures = [
+    ...highLightLayerSource.getFeaturesAtCoordinate(evt.coordinate),
+    ...highLightLayerSource.getFeaturesAtCoordinate(wrappedCoordinate)
+  ];
+
   if (currentFeatures.length > 0 && selectedFeature !== currentFeatures[0]) {
     currentFeatures[0].set("isActive", true);
     highlightedFeatures.push(currentFeatures[0])
   }
-
 });
 
 // select a country
@@ -49,11 +55,23 @@ map.on("click", (evt) => {
   if (selectedFeature !== null && selectedFeature != undefined) {
     selectedFeature.set('isSelected', false);
   }
-  
+  console.log(selectedFeature)
   selectedFeature = null;
-  
-  // deselect if click on ocean
+
+  // Check for features at both original and wrapped coordinates
+  const wrappedCoordinate = [evt.coordinate[0] - 20037508.34 * 2, evt.coordinate[1]];
+
+  // Get features at both positions
+  let currentFeatures = [
+    ...highLightLayerSource.getFeaturesAtCoordinate(evt.coordinate),
+    ...highLightLayerSource.getFeaturesAtCoordinate(wrappedCoordinate)
+  ];
+
   selectedFeature = highlightedFeatures.pop();
+  if (currentFeatures.length > 0) {
+    selectedFeature = currentFeatures[0];
+  }
+
   if (selectedFeature !== null && selectedFeature != undefined) {
     selectedFeature.set('isActive', false);
     selectedFeature.set('isSelected', true);
@@ -67,26 +85,24 @@ map.on("click", (evt) => {
     if (countrySelected.textContent !== currentCountry) {
       // Load articles from the backend API
       loadArticlesForCountry(currentCountry);
-      
+
       // Fly to the selected country
-      flyTo(selectedFeature, function () {}, map.getView());
+      flyTo(selectedFeature, function () { }, map.getView());
     }
     countrySelected.textContent = currentCountry;
-  } else if (countrySelected.textContent == "No Country"){
-      
+  } else if (countrySelected.textContent == "No Country") {
+
   } else {
-	  currentCountry = "";
+    currentCountry = "";
     countrySelected.textContent = "No Country";
-    // rehighlight deselected country
-    let currentFeatures = highLightLayerSource.getFeaturesAtCoordinate(evt.coordinate);
-    emptyNarratives();
+
+    // Check for features at both positions when deselecting
     if (currentFeatures.length > 0 && selectedFeature !== currentFeatures[0]) {
       currentFeatures[0].set("isActive", true);
       highlightedFeatures.push(currentFeatures[0]);
     }
-	flyOut(map.getView());
+    flyOut(map.getView());
   }
-	
 });
 
 function flyTo(selectedFeature, done, view) {
@@ -98,20 +114,19 @@ function flyTo(selectedFeature, done, view) {
     {
       center: location,
       duration: duration,
-	  zoom: z
+      zoom: z
     }
   );
 }
 
 function flyOut(view) {
-  // console.log("flying out");
   const duration = 1000;
   view.animate(
     {
-      center: [0,0],
+      center: [0, 0],
       duration: duration,
-	  zoom: 0,
-	  easing: easeOut
+      zoom: 0,
+      easing: easeOut
     }
   );
 }
