@@ -165,8 +165,8 @@ async def refresh_cache(request: RefreshCacheRequest):
         results = {}
         for country in countries_to_refresh:
             try:
-                # Get all articles for the country (no limit)
-                articles = firebase_client.get_recent_articles_by_country(country, limit=1000)
+                # Get only 10 articles for the country (to minimize Firebase reads)
+                articles = firebase_client.get_recent_articles_by_country(country, limit=10)
                 
                 # Update cache
                 article_cache.set_articles(country, articles)

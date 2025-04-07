@@ -8,6 +8,8 @@ import logging
 # Configure logging
 logger = logging.getLogger(__name__)
 
+
+
 class ArticleCache:
     def __init__(self, cache_file_path: str = "article_cache.json"):
         """
@@ -153,15 +155,14 @@ class ArticleCache:
                                      key=lambda x: int(x.get("metadata", {}).get("datePublishedUnix", 0) or 0), 
                                      reverse=True)
             
-            # Only cache the 10 most recent articles
-            articles_to_cache = sorted_articles[:10]
+            # Use all articles passed from main.py (which are already limited)
+            articles_to_cache = sorted_articles
             
             # Log information about the articles being cached
             if articles_to_cache:
                 newest_date = articles_to_cache[0].get("date", "unknown")
                 oldest_date = articles_to_cache[-1].get("date", "unknown") if len(articles_to_cache) > 1 else newest_date
                 logger.info(f"Caching {len(articles_to_cache)} articles for {country} with date range: {newest_date} to {oldest_date}")
-                logger.info(f"Limited cache to 10 articles (from original {len(articles)} articles)")
             else:
                 logger.warning(f"No articles to cache for country {country}")
             
