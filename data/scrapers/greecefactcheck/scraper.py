@@ -1,10 +1,10 @@
 import feedparser
 import json
 import time
-import re
+import re  # Importing regex for HTML parsing
 
-# Agencia Ocote RSS Feed URL
-rss_url = "https://www.agenciaocote.com/blog/category/factica/feed/"
+# Faktograf RSS Feed URL
+rss_url = "https://www.factchecker.gr/category/fact-check/feed/"
 
 # Parse RSS Feed
 feed = feedparser.parse(rss_url)
@@ -29,10 +29,10 @@ for index, entry in enumerate(feed.entries):
         "author": entry.get("author", ""),  # Use 'Unknown' if creator is not available
         "date_published": entry.published,
         "unix_date_published": time.mktime(entry.published_parsed) if entry.published_parsed else None,
-        "organization_country": "guatemala",  # Assuming the organization is based in Guatemala
-        "site_name": "ocote",
+        "organization_country": "greece",  # Assuming the organization is based in Croatia
+        "site_name": "greecefactcheck",
         "url": entry.link,
-        "language": "es",  # Assuming Spanish for all articles
+        "language": "el",  # Assuming Greek for all articles
     }
 
 # Save articles to a local JSON file

@@ -45,8 +45,9 @@ MAX_WAIT_TIME = 300  # Maximum time to wait for scraper to complete (in seconds)
 
 # Country mapping for scrapers
 SCRAPER_COUNTRY_MAPPING = {
-    "ocote": "guatemala"  # Ocote is from Guatemala
-    # Add more mappings as needed
+    "ocote": "guatemala",         # Ocote is from Guatemala
+    "greecefactcheck": "greece",  # Greek fact-checking organization
+    "actionfordemocraticsociety": "kosovo"
 }
 
 def generate_article_id(title, url, source):
@@ -133,8 +134,8 @@ def run_scraper(scraper_name):
         logger.error(f"Error loading data from {scraper_name}: {e}")
         return None
 
-def transform_ocote_article(article_data, source):
-    """Transform Ocote article format to our standardized format"""
+def transform_standard_article(article_data, source):
+    """Transform article data from any scraper to our standardized format"""
     # Ensure source is lowercase
     source = source.lower()
     
@@ -179,8 +180,18 @@ def transform_ocote_article(article_data, source):
     
     return transformed
 
-def process_ocote_data(data, source="ocote", force_update=False):
-    """Process Ocote scraper data and add to Firebase"""
+def process_standard_data(data, source, force_update=False):
+    """Process scraper data and add to Firebase
+    
+    This function handles data from any scraper that produces output in the standard format:
+    {
+        "articles": {
+            "0": { article data },
+            "1": { article data },
+            ...
+        }
+    }
+    """
     if not data or 'articles' not in data:
         logger.error(f"No articles found in data from {source}")
         return
@@ -220,7 +231,7 @@ def process_ocote_data(data, source="ocote", force_update=False):
         article_id = generate_article_id(title, url, source)
         
         # Transform to our standardized format
-        transformed_article = transform_ocote_article(article_data, source)
+        transformed_article = transform_standard_article(article_data, source)
         
         # Add to our processing list
         new_articles.append((article_id, transformed_article))
@@ -245,23 +256,25 @@ def main():
     """Main function to run all scrapers and process their data"""
     logger.info("Starting scraper processing")
     
-    # Get list of scrapers
-    scrapers = [d for d in os.listdir(SCRAPERS_DIR) 
-               if os.path.isdir(os.path.join(SCRAPERS_DIR, d)) and 
-               os.path.exists(os.path.join(SCRAPERS_DIR, d, 'scraper.py'))]
+    # Only process scrapers defined in the country mapping dictionary
+    scrapers = list(SCRAPER_COUNTRY_MAPPING.keys())
     
-    logger.info(f"Found {len(scrapers)} scrapers: {', '.join(scrapers)}")
+    logger.info(f"Processing {len(scrapers)} scrapers: {', '.join(scrapers)}")
     
-    # Process each scraper
+    # Process each scraper in the mapping
     for scraper in scrapers:
+        # Check if the scraper directory exists
+        scraper_dir = os.path.join(SCRAPERS_DIR, scraper)
+        scraper_script = os.path.join(scraper_dir, 'scraper.py')
+        
+        if not os.path.exists(scraper_dir) or not os.path.exists(scraper_script):
+            logger.warning(f"Scraper directory or script not found for {scraper}. Skipping.")
+            continue
+        
+        # Run the scraper and process its data
         data = run_scraper(scraper)
         if data:
-            # Process based on scraper type (ensure lowercase)
-            scraper = scraper.lower()
-            if scraper == "ocote":
-                process_ocote_data(data, source=scraper)
-            else:
-                logger.warning(f"No processor defined for scraper: {scraper}")
+            process_standard_data(data, source=scraper)
     
     logger.info("Completed scraper processing")
 

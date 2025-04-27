@@ -1,0 +1,944 @@
+[
+  {
+    "name": "20 Minutes Fake off",
+    "country": "France",
+    "verified_on": "8/23/2023",
+    "profile_url": "/profile/20-minutes-fake-off"
+  },
+  {
+    "name": "ABS-CBN Corporation",
+    "country": "Philippines",
+    "verified_on": "3/27/2024",
+    "profile_url": "/profile/abs-cbn-corporation"
+  },
+  {
+    "name": "AFP fact checking",
+    "country": "France",
+    "verified_on": "9/25/2024",
+    "profile_url": "/profile/afp-fact-checking"
+  },
+  {
+    "name": "AP Fact Check",
+    "country": "United States",
+    "verified_on": "8/23/2023",
+    "profile_url": "/profile/ap-fact-check"
+  },
+  {
+    "name": "APA - Austria Presse Agentur",
+    "country": "Austria",
+    "verified_on": "3/13/2024",
+    "profile_url": "/profile/apa-austria-presse-agentur"
+  },
+  {
+    "name": "Action for Democratic Society (ADS) / hibrid.info",
+    "country": "Kosovo",
+    "verified_on": "4/25/2025",
+    "profile_url": "/profile/action-for-democratic-society-ads-hibridinfo"
+  },
+  {
+    "name": "Africa Check",
+    "country": "South Africa",
+    "verified_on": "10/8/2024",
+    "profile_url": "/profile/africa-check"
+  },
+  {
+    "name": "Animal Pol\u00edtico - El Sabueso",
+    "country": "Mexico",
+    "verified_on": "8/23/2024",
+    "profile_url": "/profile/animal-pol\u00edtico---el-sabueso"
+  },
+  {
+    "name": "Annie Lab",
+    "country": "Hong Kong",
+    "verified_on": "4/25/2025",
+    "profile_url": "/profile/annie-lab"
+  },
+  {
+    "name": "Aos Fatos",
+    "country": "Brazil",
+    "verified_on": "3/13/2024",
+    "profile_url": "/profile/aos-fatos"
+  },
+  {
+    "name": "Australian Associated Press",
+    "country": "Australia",
+    "verified_on": "3/12/2024",
+    "profile_url": "/profile/australian-associated-press"
+  },
+  {
+    "name": "BOOM",
+    "country": "India",
+    "verified_on": "1/19/2024",
+    "profile_url": "/profile/boom"
+  },
+  {
+    "name": "Beam Reports",
+    "country": "Sudan",
+    "verified_on": "2/27/2025",
+    "profile_url": "/profile/beam-reports"
+  },
+  {
+    "name": "Belarusian Investigative Center",
+    "country": "Czech Republic",
+    "verified_on": "6/18/2024",
+    "profile_url": "/profile/belarusian-investigative-center"
+  },
+  {
+    "name": "CORRECTIV",
+    "country": "Germany",
+    "verified_on": "1/19/2024",
+    "profile_url": "/profile/correctiv"
+  },
+  {
+    "name": "CableCheck",
+    "country": "Nigeria",
+    "verified_on": "3/18/2025",
+    "profile_url": "/profile/cablecheck"
+  },
+  {
+    "name": "Cazadores de Fake News",
+    "country": "Venezuela, Bolivarian Republic of",
+    "verified_on": "3/14/2025",
+    "profile_url": "/profile/cazadores-de-fake-news"
+  },
+  {
+    "name": "Cek Fakta - Liputan 6",
+    "country": "Indonesia",
+    "verified_on": "1/19/2024",
+    "profile_url": "/profile/cek-fakta-liputan-6"
+  },
+  {
+    "name": "Check Your Fact",
+    "country": "United States",
+    "verified_on": "3/13/2024",
+    "profile_url": "/profile/check-your-fact"
+  },
+  {
+    "name": "Chequeado",
+    "country": "Argentina",
+    "verified_on": "10/7/2024",
+    "profile_url": "/profile/chequeado"
+  },
+  {
+    "name": "CivilNet",
+    "country": "Armenia",
+    "verified_on": "10/4/2024",
+    "profile_url": "/profile/civilnet"
+  },
+  {
+    "name": "Colombiacheck",
+    "country": "Colombia",
+    "verified_on": "3/27/2024",
+    "profile_url": "/profile/colombiacheck"
+  },
+  {
+    "name": "Cotejo.Info",
+    "country": "Venezuela, Bolivarian Republic of",
+    "verified_on": "3/4/2024",
+    "profile_url": "/profile/cotejoinfo"
+  },
+  {
+    "name": "Demagog Association",
+    "country": "Poland",
+    "verified_on": "10/4/2024",
+    "profile_url": "/profile/demagog-association"
+  },
+  {
+    "name": "Demagog.cz",
+    "country": "Czech Republic",
+    "verified_on": "11/22/2024",
+    "profile_url": "/profile/demagogcz"
+  },
+  {
+    "name": "Demagog.sk",
+    "country": "Slovakia",
+    "verified_on": "3/26/2025",
+    "profile_url": "/profile/demagog.sk"
+  },
+  {
+    "name": "Deutsche Welle",
+    "country": "Germany",
+    "verified_on": "3/19/2024",
+    "profile_url": "/profile/deutsche-welle"
+  },
+  {
+    "name": "Digital Forensics, Research and Analytics Centre (D-FRAC)",
+    "country": "India",
+    "verified_on": "3/27/2024",
+    "profile_url": "/profile/digital-forensics-research-and-analytics-centre-d-frac"
+  },
+  {
+    "name": "Digiteye",
+    "country": "India",
+    "verified_on": "10/8/2024",
+    "profile_url": "/profile/digiteye"
+  },
+  {
+    "name": "Doble Check (Radioemisoras UCR)",
+    "country": "Costa Rica",
+    "verified_on": "3/18/2025",
+    "profile_url": "/profile/doble-check-(radioemisoras-ucr)"
+  },
+  {
+    "name": "Do\u011frula",
+    "country": "Turkey",
+    "verified_on": "1/31/2024",
+    "profile_url": "/profile/dogrula"
+  },
+  {
+    "name": "Do\u011fruluk Pay\u0131",
+    "country": "Turkey",
+    "verified_on": "12/7/2023",
+    "profile_url": "/profile/dogruluk-payi"
+  },
+  {
+    "name": "EFE Verifica",
+    "country": "Spain",
+    "verified_on": "5/10/2024",
+    "profile_url": "/profile/efe-verifica"
+  },
+  {
+    "name": "Ecuador Chequea",
+    "country": "Ecuador",
+    "verified_on": "12/5/2024",
+    "profile_url": "/profile/ecuador-chequea"
+  },
+  {
+    "name": "Efecto Cocuyo (Cocuyo Chequea)",
+    "country": "Venezuela, Bolivarian Republic of",
+    "verified_on": "3/26/2025",
+    "profile_url": "/profile/efecto-cocuyo-(cocuyo-chequea)"
+  },
+  {
+    "name": "Ellinika Hoaxes (Greek Hoaxes)",
+    "country": "Greece",
+    "verified_on": "3/13/2024",
+    "profile_url": "/profile/ellinika-hoaxes-greek-hoaxes"
+  },
+  {
+    "name": "FACTLY MEDIA & RESEARCH",
+    "country": "India",
+    "verified_on": "5/10/2024",
+    "profile_url": "/profile/factly-media-research"
+  },
+  {
+    "name": "Fact Check Cyprus",
+    "country": "Cyprus",
+    "verified_on": "8/23/2024",
+    "profile_url": "/profile/fact-check-cyprus"
+  },
+  {
+    "name": "Fact Check Zimbabwe",
+    "country": "Zimbabwe",
+    "verified_on": "2/27/2025",
+    "profile_url": "/profile/fact-check-zimbabwe"
+  },
+  {
+    "name": "Fact Investigation Platform (FIP.am)",
+    "country": "Armenia",
+    "verified_on": "3/18/2025",
+    "profile_url": "/profile/fact-investigation-platform-(fip.am)-"
+  },
+  {
+    "name": "FactCheck Georgia",
+    "country": "Georgia",
+    "verified_on": "3/19/2024",
+    "profile_url": "/profile/factcheck-georgia"
+  },
+  {
+    "name": "FactCheck.org",
+    "country": "United States",
+    "verified_on": "3/13/2024",
+    "profile_url": "/profile/factcheckorg"
+  },
+  {
+    "name": "FactCheckNI",
+    "country": "United Kingdom",
+    "verified_on": "2/27/2025",
+    "profile_url": "/profile/factcheckni"
+  },
+  {
+    "name": "FactCrescendo",
+    "country": "India",
+    "verified_on": "5/13/2024",
+    "profile_url": "/profile/factcrescendo"
+  },
+  {
+    "name": "FactReview",
+    "country": "Greece",
+    "verified_on": "6/18/2024",
+    "profile_url": "/profile/factreview"
+  },
+  {
+    "name": "FactWatch",
+    "country": "Bangladesh",
+    "verified_on": "6/18/2024",
+    "profile_url": "/profile/factwatch"
+  },
+  {
+    "name": "Facta",
+    "country": "Italy",
+    "verified_on": "2/27/2025",
+    "profile_url": "/profile/facta"
+  },
+  {
+    "name": "Factcheck Lab",
+    "country": "Hong Kong",
+    "verified_on": "6/18/2024",
+    "profile_url": "/profile/factcheck-lab"
+  },
+  {
+    "name": "Factcheck.bg",
+    "country": "Bulgaria",
+    "verified_on": "8/23/2024",
+    "profile_url": "/profile/factcheckbg"
+  },
+  {
+    "name": "Factcheck.kz",
+    "country": "Kazakhstan",
+    "verified_on": "11/11/2024",
+    "profile_url": "/profile/factcheckkz"
+  },
+  {
+    "name": "Factchequeado.com",
+    "country": "United States",
+    "verified_on": "2/27/2025",
+    "profile_url": "/profile/factchequeado.com"
+  },
+  {
+    "name": "FakeNews Traga\u010d",
+    "country": "Serbia",
+    "verified_on": "9/25/2024",
+    "profile_url": "/profile/fakenews-tragac"
+  },
+  {
+    "name": "Fakt Yoxla",
+    "country": "Azerbaijan",
+    "verified_on": "2/27/2025",
+    "profile_url": "/profile/fakt-yoxla"
+  },
+  {
+    "name": "Faktisk.no",
+    "country": "Norway",
+    "verified_on": "11/2/2023",
+    "profile_url": "/profile/faktiskno"
+  },
+  {
+    "name": "Faktograf-udruga za informiranu javnost",
+    "country": "Croatia",
+    "verified_on": "6/4/2024",
+    "profile_url": "/profile/faktograf-udruga-za-informiranu-javnost"
+  },
+  {
+    "name": "Faktoje.al",
+    "country": "Albania",
+    "verified_on": "11/22/2024",
+    "profile_url": "/profile/faktojeal"
+  },
+  {
+    "name": "Fast Check CL",
+    "country": "Chile",
+    "verified_on": "2/13/2024",
+    "profile_url": "/profile/fast-check-cl"
+  },
+  {
+    "name": "Ferret Fact Service",
+    "country": "United Kingdom",
+    "verified_on": "1/31/2024",
+    "profile_url": "/profile/ferret-fact-service"
+  },
+  {
+    "name": "First Check",
+    "country": "India",
+    "verified_on": "5/10/2024",
+    "profile_url": "/profile/first-check"
+  },
+  {
+    "name": "France 24 - Les Observateurs",
+    "country": "France",
+    "verified_on": "12/5/2024",
+    "profile_url": "/profile/france-24-les-observateurs"
+  },
+  {
+    "name": "Full Fact",
+    "country": "United Kingdom",
+    "verified_on": "1/19/2024",
+    "profile_url": "/profile/full-fact"
+  },
+  {
+    "name": "Fundacja \"Przeciwdzia\u0142amy Dezinformacji\"",
+    "country": "Poland",
+    "verified_on": "5/10/2024",
+    "profile_url": "/profile/fundacja-przeciwdzialamy-dezinformacji"
+  },
+  {
+    "name": "Funky Citizens",
+    "country": "Romania",
+    "verified_on": "11/22/2024",
+    "profile_url": "/profile/funky-citizens"
+  },
+  {
+    "name": "GWARA MEDIA",
+    "country": "Ukraine",
+    "verified_on": "12/5/2024",
+    "profile_url": "/profile/gwara-media"
+  },
+  {
+    "name": "Green eFact",
+    "country": "Portugal",
+    "verified_on": "3/26/2025",
+    "profile_url": "/profile/green-efact"
+  },
+  {
+    "name": "HKBU Fact Check",
+    "country": "Hong Kong",
+    "verified_on": "4/25/2025",
+    "profile_url": "/profile/hkbu-fact-check"
+  },
+  {
+    "name": "INTERNEWS KOSOVA",
+    "country": "Kosovo",
+    "verified_on": "4/25/2025",
+    "profile_url": "/profile/internews-kosova"
+  },
+  {
+    "name": "India Today Fact Check",
+    "country": "India",
+    "verified_on": "10/8/2024",
+    "profile_url": "/profile/india-today-fact-check"
+  },
+  {
+    "name": "Istinomer",
+    "country": "Serbia",
+    "verified_on": "3/13/2024",
+    "profile_url": "/profile/istinomer"
+  },
+  {
+    "name": "Istinomjer",
+    "country": "Bosnia and Herzegovina",
+    "verified_on": "3/13/2024",
+    "profile_url": "/profile/istinomjer"
+  },
+  {
+    "name": "JTBC",
+    "country": "Korea, Republic of",
+    "verified_on": "4/25/2025",
+    "profile_url": "/profile/jtbc"
+  },
+  {
+    "name": "Knack Magazine, Roularta Media Group",
+    "country": "Belgium",
+    "verified_on": "5/10/2024",
+    "profile_url": "/profile/knack-magazine-roularta-media-group"
+  },
+  {
+    "name": "La Silla Vac\u00eda",
+    "country": "Colombia",
+    "verified_on": "10/4/2024",
+    "profile_url": "/profile/la-silla-vac\u00eda"
+  },
+  {
+    "name": "Lakmusz.hu - Magyar Jeti Zrt.",
+    "country": "Hungary",
+    "verified_on": "9/25/2024",
+    "profile_url": "/profile/lakmusz.hu---magyar-jeti-zrt."
+  },
+  {
+    "name": "Lead Stories",
+    "country": "United States",
+    "verified_on": "12/7/2023",
+    "profile_url": "/profile/lead-stories"
+  },
+  {
+    "name": "Les Surligneurs",
+    "country": "France",
+    "verified_on": "8/23/2024",
+    "profile_url": "/profile/les-surligneurs"
+  },
+  {
+    "name": "Local Voices Media Network",
+    "country": "Liberia",
+    "verified_on": "12/10/2024",
+    "profile_url": "/profile/local-voices-media-network-"
+  },
+  {
+    "name": "Lupa",
+    "country": "Brazil",
+    "verified_on": "1/19/2024",
+    "profile_url": "/profile/lupa"
+  },
+  {
+    "name": "MAFINDO",
+    "country": "Indonesia",
+    "verified_on": "3/27/2024",
+    "profile_url": "/profile/mafindo"
+  },
+  {
+    "name": "Maharat Foundation",
+    "country": "Lebanon",
+    "verified_on": "4/25/2025",
+    "profile_url": "/profile/maharat-foundation"
+  },
+  {
+    "name": "Mala Espina Check",
+    "country": "Chile",
+    "verified_on": "5/10/2024",
+    "profile_url": "/profile/mala-espina-check"
+  },
+  {
+    "name": "Maldita.es",
+    "country": "Spain",
+    "verified_on": "11/2/2023",
+    "profile_url": "/profile/maldita.es"
+  },
+  {
+    "name": "Manorama Online",
+    "country": "India",
+    "verified_on": "4/16/2025",
+    "profile_url": "/profile/manorama-online"
+  },
+  {
+    "name": "MediaWise",
+    "country": "United States",
+    "verified_on": "2/27/2025",
+    "profile_url": "/profile/mediawise"
+  },
+  {
+    "name": "Medical Dialogues",
+    "country": "India",
+    "verified_on": "3/14/2025",
+    "profile_url": "/profile/medical-dialogues-"
+  },
+  {
+    "name": "Medizin transparent - Universit\u00e4t f\u00fcr Weiterbildung Krems (Donau-Universit\u00e4t Krems)",
+    "country": "Austria",
+    "verified_on": "1/31/2024",
+    "profile_url": "/profile/medizin-transparent-universitat-fur-weiterbildung-krems-donau-universitat-krems"
+  },
+  {
+    "name": "Metamorphosis Foundation",
+    "country": "North Macedonia",
+    "verified_on": "11/22/2024",
+    "profile_url": "/profile/metamorphosis-foundation"
+  },
+  {
+    "name": "MindaNews",
+    "country": "Philippines",
+    "verified_on": "8/26/2024",
+    "profile_url": "/profile/mindanews"
+  },
+  {
+    "name": "MyGoPen",
+    "country": "Taiwan",
+    "verified_on": "12/5/2024",
+    "profile_url": "/profile/mygopen"
+  },
+  {
+    "name": "Myth Detector",
+    "country": "Georgia",
+    "verified_on": "5/10/2024",
+    "profile_url": "/profile/myth-detector"
+  },
+  {
+    "name": "NepalFactCheck.org",
+    "country": "Nepal",
+    "verified_on": "2/27/2025",
+    "profile_url": "/profile/nepalfactcheck.org"
+  },
+  {
+    "name": "Nest center for Journalism Innovation and Development NGO",
+    "country": "Mongolia",
+    "verified_on": "8/23/2024",
+    "profile_url": "/profile/nest-center-for-journalism-innovation-and-development-ngo"
+  },
+  {
+    "name": "NewsMobile",
+    "country": "India",
+    "verified_on": "2/27/2025",
+    "profile_url": "/profile/newsmobile"
+  },
+  {
+    "name": "Newschecker",
+    "country": "India",
+    "verified_on": "10/8/2024",
+    "profile_url": "/profile/newschecker"
+  },
+  {
+    "name": "Newsmeter (Fifth Estate Digital Private Limited)",
+    "country": "India",
+    "verified_on": "6/18/2024",
+    "profile_url": "/profile/newsmeter-fifth-estate-digital-private-limited"
+  },
+  {
+    "name": "Newtral",
+    "country": "Spain",
+    "verified_on": "9/25/2024",
+    "profile_url": "/profile/newtral"
+  },
+  {
+    "name": "Observador - Fact Check",
+    "country": "Portugal",
+    "verified_on": "3/13/2024",
+    "profile_url": "/profile/observador-fact-check"
+  },
+  {
+    "name": "Ocote",
+    "country": "Guatemala",
+    "verified_on": "3/8/2024",
+    "profile_url": "/profile/ocote"
+  },
+  {
+    "name": "Open.online",
+    "country": "Italy",
+    "verified_on": "2/27/2025",
+    "profile_url": "/profile/open.online"
+  },
+  {
+    "name": "O\u0161tro, center for investigative journalism in the Adriatic region",
+    "country": "Slovenia",
+    "verified_on": "4/25/2025",
+    "profile_url": "/profile/ostro-center-for-investigative-journalism-in-the-adriatic-region"
+  },
+  {
+    "name": "PA Media",
+    "country": "United Kingdom",
+    "verified_on": "2/27/2025",
+    "profile_url": "/profile/pa-media"
+  },
+  {
+    "name": "PT. Kompas Cyber Media",
+    "country": "Indonesia",
+    "verified_on": "12/10/2024",
+    "profile_url": "/profile/pt.-kompas-cyber-media"
+  },
+  {
+    "name": "Pagella Politica",
+    "country": "Italy",
+    "verified_on": "9/12/2023",
+    "profile_url": "/profile/pagella-politica"
+  },
+  {
+    "name": "Palestinian platform for Fact-checking and Media Literacy \"Kashif\"",
+    "country": "Palestinian Territory, Occupied",
+    "verified_on": "12/10/2024",
+    "profile_url": "/profile/palestinian-platform-for-fact-checking-and-media-literacy-\"kashif\""
+  },
+  {
+    "name": "Patikrinta 15min",
+    "country": "Lithuania",
+    "verified_on": "11/22/2024",
+    "profile_url": "/profile/patikrinta-15min"
+  },
+  {
+    "name": "PesaCheck",
+    "country": "Kenya",
+    "verified_on": "6/18/2024",
+    "profile_url": "/profile/pesacheck"
+  },
+  {
+    "name": "Piga Firimbi",
+    "country": "Kenya",
+    "verified_on": "12/10/2024",
+    "profile_url": "/profile/piga-firimbi"
+  },
+  {
+    "name": "PolitiFact",
+    "country": "United States",
+    "verified_on": "1/19/2024",
+    "profile_url": "/profile/politifact"
+  },
+  {
+    "name": "Pol\u00edgrafo",
+    "country": "Portugal",
+    "verified_on": "12/5/2024",
+    "profile_url": "/profile/poligrafo"
+  },
+  {
+    "name": "Pravda",
+    "country": "Poland",
+    "verified_on": "2/27/2025",
+    "profile_url": "/profile/pravda"
+  },
+  {
+    "name": "Premium Times Center for Investigative Journalism",
+    "country": "Nigeria",
+    "verified_on": "3/13/2024",
+    "profile_url": "/profile/premium-times-center-for-investigative-journalism"
+  },
+  {
+    "name": "Press Trust of India",
+    "country": "India",
+    "verified_on": "4/25/2025",
+    "profile_url": "/profile/press-trust-of-india"
+  },
+  {
+    "name": "PressOne.PH",
+    "country": "Philippines",
+    "verified_on": "5/10/2024",
+    "profile_url": "/profile/pressoneph"
+  },
+  {
+    "name": "Provereno.Media",
+    "country": "Estonia",
+    "verified_on": "12/5/2024",
+    "profile_url": "/profile/proverenomedia"
+  },
+  {
+    "name": "RMIT Lookout",
+    "country": "Australia",
+    "verified_on": "12/17/2024",
+    "profile_url": "/profile/rmit-lookout"
+  },
+  {
+    "name": "Rappler",
+    "country": "Philippines",
+    "verified_on": "11/3/2023",
+    "profile_url": "/profile/rappler"
+  },
+  {
+    "name": "Raskrikavanje",
+    "country": "Serbia",
+    "verified_on": "2/27/2025",
+    "profile_url": "/profile/raskrikavanje"
+  },
+  {
+    "name": "Raskrinkavanje",
+    "country": "Bosnia and Herzegovina",
+    "verified_on": "2/27/2025",
+    "profile_url": "/profile/raskrinkavanje"
+  },
+  {
+    "name": "Raskrinkavanje.me",
+    "country": "Montenegro",
+    "verified_on": "6/18/2024",
+    "profile_url": "/profile/raskrinkavanjeme"
+  },
+  {
+    "name": "Re:Baltica",
+    "country": "Latvia",
+    "verified_on": "4/25/2025",
+    "profile_url": "/profile/re:baltica"
+  },
+  {
+    "name": "Reuters",
+    "country": "United States",
+    "verified_on": "4/23/2025",
+    "profile_url": "/profile/reuters"
+  },
+  {
+    "name": "Science Feedback",
+    "country": "France",
+    "verified_on": "5/10/2024",
+    "profile_url": "/profile/science-feedback"
+  },
+  {
+    "name": "StopFake.org",
+    "country": "Ukraine",
+    "verified_on": "6/18/2024",
+    "profile_url": "/profile/stopfakeorg"
+  },
+  {
+    "name": "Stopfals.md",
+    "country": "Moldova, Republic of",
+    "verified_on": "1/31/2024",
+    "profile_url": "/profile/stopfalsmd"
+  },
+  {
+    "name": "Suara.com",
+    "country": "Indonesia",
+    "verified_on": "9/10/2024",
+    "profile_url": "/profile/suaracom"
+  },
+  {
+    "name": "T Verifica \u2014 Noticias Telemundo",
+    "country": "United States",
+    "verified_on": "3/13/2024",
+    "profile_url": "/profile/t-verifica-noticias-telemundo"
+  },
+  {
+    "name": "THIP Healthtech Pvt Ltd",
+    "country": "India",
+    "verified_on": "10/8/2024",
+    "profile_url": "/profile/thip-healthtech-pvt-ltd"
+  },
+  {
+    "name": "TOGOCHECK",
+    "country": "Togo",
+    "verified_on": "8/27/2024",
+    "profile_url": "/profile/togocheck"
+  },
+  {
+    "name": "TV Today Network Limited - The Lallantop",
+    "country": "India",
+    "verified_on": "3/13/2024",
+    "profile_url": "/profile/tv-today-network-limited---the-lallantop"
+  },
+  {
+    "name": "Taiwan FactCheck Center",
+    "country": "Taiwan",
+    "verified_on": "8/30/2023",
+    "profile_url": "/profile/taiwan-factcheck-center"
+  },
+  {
+    "name": "Telugupost.com",
+    "country": "India",
+    "verified_on": "10/8/2024",
+    "profile_url": "/profile/telugupost.com"
+  },
+  {
+    "name": "Tempo.co",
+    "country": "Indonesia",
+    "verified_on": "5/10/2024",
+    "profile_url": "/profile/tempoco"
+  },
+  {
+    "name": "Teyit",
+    "country": "Turkey",
+    "verified_on": "8/23/2024",
+    "profile_url": "/profile/teyit"
+  },
+  {
+    "name": "The Canadian Press",
+    "country": "Canada",
+    "verified_on": "5/10/2024",
+    "profile_url": "/profile/the-canadian-press"
+  },
+  {
+    "name": "The Dispatch",
+    "country": "United States",
+    "verified_on": "3/13/2024",
+    "profile_url": "/profile/the-dispatch"
+  },
+  {
+    "name": "The Journal FactCheck",
+    "country": "Ireland",
+    "verified_on": "10/4/2024",
+    "profile_url": "/profile/the-journal-factcheck"
+  },
+  {
+    "name": "The Quint",
+    "country": "India",
+    "verified_on": "12/5/2024",
+    "profile_url": "/profile/the-quint"
+  },
+  {
+    "name": "The Stage Media -Liberia",
+    "country": "Liberia",
+    "verified_on": "8/23/2024",
+    "profile_url": "/profile/the-stage-media-liberia"
+  },
+  {
+    "name": "The Washington Post Fact Checker",
+    "country": "United States",
+    "verified_on": "8/23/2024",
+    "profile_url": "/profile/the-washington-post-fact-checker"
+  },
+  {
+    "name": "The Whistle",
+    "country": "Israel",
+    "verified_on": "1/23/2025",
+    "profile_url": "/profile/the-whistle"
+  },
+  {
+    "name": "Tirto ID",
+    "country": "Indonesia",
+    "verified_on": "1/31/2024",
+    "profile_url": "/profile/tirto-id"
+  },
+  {
+    "name": "TjekDet.dk",
+    "country": "Denmark",
+    "verified_on": "8/23/2024",
+    "profile_url": "/profile/tjekdetdk"
+  },
+  {
+    "name": "UOL Confere",
+    "country": "Brazil",
+    "verified_on": "2/27/2025",
+    "profile_url": "/profile/uol-confere"
+  },
+  {
+    "name": "USA TODAY",
+    "country": "United States",
+    "verified_on": "6/18/2024",
+    "profile_url": "/profile/usa-today"
+  },
+  {
+    "name": "VRT NWS",
+    "country": "Belgium",
+    "verified_on": "2/27/2025",
+    "profile_url": "/profile/vrt-nws"
+  },
+  {
+    "name": "Verafiles Incorporated",
+    "country": "Philippines",
+    "verified_on": "12/7/2023",
+    "profile_url": "/profile/verafiles-incorporated"
+  },
+  {
+    "name": "Verificador de La Rep\u00fablica",
+    "country": "Peru",
+    "verified_on": "8/23/2024",
+    "profile_url": "/profile/verificador-de-la-republica"
+  },
+  {
+    "name": "Verificat",
+    "country": "Spain",
+    "verified_on": "6/18/2024",
+    "profile_url": "/profile/verificat"
+  },
+  {
+    "name": "Verify Media Platform",
+    "country": "Turkey",
+    "verified_on": "12/5/2024",
+    "profile_url": "/profile/verify-media-platform"
+  },
+  {
+    "name": "Viral Check",
+    "country": "Portugal",
+    "verified_on": "10/4/2024",
+    "profile_url": "/profile/viral-check"
+  },
+  {
+    "name": "Vishvas News",
+    "country": "India",
+    "verified_on": "8/23/2024",
+    "profile_url": "/profile/vishvas-news"
+  },
+  {
+    "name": "VoxUkraine",
+    "country": "Ukraine",
+    "verified_on": "3/13/2024",
+    "profile_url": "/profile/voxukraine"
+  },
+  {
+    "name": "Wisconsin Watch",
+    "country": "United States",
+    "verified_on": "11/22/2024",
+    "profile_url": "/profile/wisconsin-watch"
+  },
+  {
+    "name": "Wojownicy Klawiatury",
+    "country": "Poland",
+    "verified_on": "1/31/2024",
+    "profile_url": "/profile/wojownicy-klawiatury"
+  },
+  {
+    "name": "Youturn",
+    "country": "India",
+    "verified_on": "6/18/2024",
+    "profile_url": "/profile/youturn"
+  },
+  {
+    "name": "dpa Deutsche Presse-Agentur GmbH",
+    "country": "Germany",
+    "verified_on": "1/19/2024",
+    "profile_url": "/profile/dpa-deutsche-presse-agentur-gmbh"
+  },
+  {
+    "name": "franceinfo.fr",
+    "country": "France",
+    "verified_on": "5/10/2024",
+    "profile_url": "/profile/franceinfofr"
+  }
+]
