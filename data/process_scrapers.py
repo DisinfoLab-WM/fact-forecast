@@ -47,7 +47,8 @@ MAX_WAIT_TIME = 300  # Maximum time to wait for scraper to complete (in seconds)
 SCRAPER_COUNTRY_MAPPING = {
     "ocote": "guatemala",         # Ocote is from Guatemala
     "greecefactcheck": "greece",  # Greek fact-checking organization
-    "actionfordemocraticsociety": "kosovo"
+    "actionfordemocraticsociety": "kosovo",
+    "boom": "india"
 }
 
 def generate_article_id(title, url, source):
