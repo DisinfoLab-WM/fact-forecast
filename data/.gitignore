@@ -1,0 +1,8 @@
+# Ignore environment variables file
+.env
+
+# Ignore logs directory
+logs/
+
+# Ignore scraper output data
+scrapers/*/data.json
