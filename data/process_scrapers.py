@@ -48,7 +48,17 @@ SCRAPER_COUNTRY_MAPPING = {
     "ocote": "guatemala",         # Ocote is from Guatemala
     "greecefactcheck": "greece",  # Greek fact-checking organization
     "actionfordemocraticsociety": "kosovo",
-    "boom": "india"
+    "boom": "india",
+    "cablecheck": "nigeria",
+    "cotejoinfo": "venezuela",
+    "digiteye": "india",
+    "annielab": "hongkong",
+    "cazadoresdefakenews": "venezuela",
+    "checkyourfact": "united states",
+    "demagogassociation": "poland",
+    "ecuadorchequea": "ecuador",
+    "efectochequea": "ecuador",
+    "ellinikahoaxes": "greece"
 }
 
 def generate_article_id(title, url, source):
