@@ -42,6 +42,7 @@ db = firebase.database()
 # Constants
 SCRAPERS_DIR = os.path.join(os.path.dirname(__file__), 'scrapers')
 MAX_WAIT_TIME = 300  # Maximum time to wait for scraper to complete (in seconds)
+MAX_RECENT_ARTICLES = 20  # Number of recent articles to keep in the index
 
 # Country mapping for scrapers
 SCRAPER_COUNTRY_MAPPING = {
@@ -58,7 +59,14 @@ SCRAPER_COUNTRY_MAPPING = {
     "demagogassociation": "poland",
     "ecuadorchequea": "ecuador",
     "efectochequea": "ecuador",
-    "ellinikahoaxes": "greece"
+    "ellinikahoaxes": "greece",
+    "factlymediaandresearch": "india",
+    "factcheckzimbabwe": "zimbabwe",
+    "factcheckcyprus": "cyprus",
+    "factcheckni": "united kingdom",
+    "factcheckorg": "united states",
+    "factcrescendo": "india",
+    "factwatch": "bangladesh"
 }
 
 def generate_article_id(title, url, source):
@@ -191,6 +199,51 @@ def transform_standard_article(article_data, source):
     
     return transformed
 
+def update_article_index(country, new_article_ids=None):
+    """Update the article index for a country with the most recent articles
+    
+    Args:
+        country: The country to update the index for
+        new_article_ids: List of tuples (article_id, article) that were just added
+    """
+    try:
+        # Get existing index if it exists
+        existing_index = db.child("articleIndex").child(country).child("latestArticles").get().val() or []
+        
+        # If we have new articles, we need to merge and resort
+        if new_article_ids:
+            # Get all articles - existing ones and new ones
+            all_articles = []
+            
+            # Get existing articles from the database
+            for article_id in existing_index:
+                article_data = db.child("articles").child(country).child(article_id).get().val()
+                if article_data:
+                    all_articles.append((article_id, article_data))
+            
+            # Add new articles
+            all_articles.extend(new_article_ids)
+            
+            # Sort all articles by datePublishedUnix (newest first)
+            all_articles.sort(
+                key=lambda x: x[1].get("metadata", {}).get("datePublishedUnix", 0),
+                reverse=True
+            )
+            
+            # Take only the most recent MAX_RECENT_ARTICLES
+            recent_articles = all_articles[:MAX_RECENT_ARTICLES]
+            
+            # Extract just the IDs for storage
+            recent_ids = [article_id for article_id, _ in recent_articles]
+            
+            # Update the index
+            db.child("articleIndex").child(country).child("latestArticles").set(recent_ids)
+            logger.info(f"Updated article index for {country} with {len(recent_ids)} articles")
+            
+    except Exception as e:
+        logger.error(f"Error updating article index for {country}: {e}")
+
+
 def process_standard_data(data, source, force_update=False):
     """Process scraper data and add to Firebase
     
@@ -258,6 +311,9 @@ def process_standard_data(data, source, force_update=False):
         
         # Update the latest article tracker
         update_latest_article(country, source, new_articles[-1][1], new_articles[-1][0])
+        
+        # Update the article index with the new articles
+        update_article_index(country, new_articles)
         
         logger.info(f"Added {len(new_articles)} new articles for {country} from {source}")
     else:
