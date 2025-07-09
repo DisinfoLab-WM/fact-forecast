@@ -12,10 +12,12 @@ const API_BASE_URL = 'http://localhost:8000';
  */
 export async function fetchArticlesByCountry(country, limit = 10) {
   try {
-    console.log(`Fetching articles for ${country} with limit ${limit}`);
-    console.log(`Request URL: ${API_BASE_URL}/articles/${country}?limit=${limit}`);
+    // Convert country to lowercase to match backend expectations
+    const countryLower = country.toLowerCase();
+    console.log(`Fetching articles for ${country} (${countryLower}) with limit ${limit}`);
+    console.log(`Request URL: ${API_BASE_URL}/articles/${countryLower}?limit=${limit}`);
     
-    const response = await fetch(`${API_BASE_URL}/articles/${country}?limit=${limit}`, {
+    const response = await fetch(`${API_BASE_URL}/articles/${countryLower}?limit=${limit}`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -31,9 +33,17 @@ export async function fetchArticlesByCountry(country, limit = 10) {
       throw new Error(`Error fetching articles: ${response.status} ${response.statusText}`);
     }
     
-    const data = await response.json();
-    console.log(`Successfully fetched ${data.articles?.length || 0} articles for ${country}`);
-    return data;
+    const articles = await response.json();
+    console.log(`Successfully fetched ${articles.length || 0} articles for ${country}`);
+    
+    // Format the response to match what the frontend expects
+    return {
+      country: country,
+      count: articles.length,
+      limit: limit,
+      source: 'firebase',
+      articles: articles
+    };
   } catch (error) {
     console.error(`Error fetching articles for ${country}:`, error);
     throw error;

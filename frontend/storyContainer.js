@@ -33,17 +33,46 @@ function hideLoading() {
  * @param {Object} article - The article data
  */
 function createNarrative(article) {
-    const title = article.metadata.articleTitle;
-    const source = article.metadata.siteName;
-    const date = new Date(article.metadata.datePublished).toLocaleDateString();
+    console.log('Creating narrative for article:', article);
     
-    // Extract first paragraph or a portion of the article text for the description
+    // Handle different article structure formats
+    // Get title from metadata.title or metadata.articleTitle
+    const title = article.metadata?.title || 
+                 article.metadata?.articleTitle || 
+                 'Untitled Article';
+    
+    // Get source from metadata.source, metadata.siteName, or metadata.site_name
+    const source = article.metadata?.source || 
+                  article.metadata?.siteName || 
+                  article.metadata?.site_name || 
+                  'Unknown Source';
+    
+    // Get date from metadata.datePublished or metadata.date_published
+    const dateStr = article.metadata?.datePublished || 
+                   article.metadata?.date_published || 
+                   null;
+    const date = dateStr ? new Date(dateStr).toLocaleDateString() : 'Unknown Date';
+    
+    // Extract description from content
     let description = '';
-    if (article.content && article.content.articleText) {
-        // Get the first 250 characters of the article text
+    if (article.content?.articleText) {
+        // Get from content.articleText
         const fullText = article.content.articleText;
         description = fullText.substring(0, 250) + (fullText.length > 250 ? '...' : '');
+    } else if (article.content?.text) {
+        // Get from content.text
+        const fullText = article.content.text;
+        description = fullText.substring(0, 250) + (fullText.length > 250 ? '...' : '');
+    } else if (article.text) {
+        // Get directly from article.text
+        const fullText = article.text;
+        description = fullText.substring(0, 250) + (fullText.length > 250 ? '...' : '');
+    } else {
+        description = 'No description available';
     }
+    
+    // Get URL from metadata.url
+    const url = article.metadata?.url || '#';
     
     let newNarrative = document.createElement('div');
     newNarrative.className = 'narrative-card';
@@ -54,7 +83,7 @@ function createNarrative(article) {
             <span class="narrative-date">${date}</span>
         </div>
         <p class="narrative-description">${description}</p>
-        <a href="${article.metadata.url}" target="_blank" class="read-more">Read Full Article</a>
+        <a href="${url}" target="_blank" class="read-more">Read Full Article</a>
     `;
     
     narrativeContainer.appendChild(newNarrative);

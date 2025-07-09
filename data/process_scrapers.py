@@ -66,7 +66,9 @@ SCRAPER_COUNTRY_MAPPING = {
     "factcheckni": "united kingdom",
     "factcheckorg": "united states",
     "factcrescendo": "india",
-    "factwatch": "bangladesh"
+    "factwatch": "bangladesh",
+    "factlymediaandresearch": "india",
+    "factwatch": "bangladesh",
 }
 
 def generate_article_id(title, url, source):

@@ -134,12 +134,22 @@ function flyOut(view) {
 /**
  * Map country names to supported country codes
  * @param {string} countryName - The country name from the map feature
- * @returns {string} - The supported country code
+ * @returns {string} - The supported country code (always lowercase)
  */
 function mapToSupportedCountry(countryName) {
-  // Map of country names to supported country codes
+  // Map of country names to supported country codes (in lowercase)
   const countryMapping = {
-    "United States of America": "USA"
+    "United States of America": "United States",
+    "Venezuela": "Venezuela",
+    "India": "India",
+    "Zimbabwe": "Zimbabwe",
+    // "Cyprus": "cyprus",
+    // "Greece": "greece",
+    "Poland": "Poland",
+    "Ecuador": "Ecuador",
+    "Guatemala": "Guatemala",
+    "United Kingdom": "United Kingdom",
+    "Nigeria": "Nigeria",
     // Add more mappings as needed
   };
 
@@ -148,9 +158,8 @@ function mapToSupportedCountry(countryName) {
     return countryMapping[countryName];
   }
 
-  // If no direct mapping, use the country name as is
-  // This might not work for all countries, but it's a fallback
-  console.log(`No mapping found for country: ${countryName}, using as is`);
-  return countryName.toUpperCase();
+  // If no direct mapping, use the country name as is but in lowercase
+  console.log(`No mapping found for country: ${countryName}, using lowercase version`);
+  return countryName.toLowerCase();
 }
 
